@@ -5,17 +5,32 @@
     <title>Log In</title>
 </head>
 <body>
-    <center>
-        <br>
-        <h1>Welcome! Please Log In</h1>
-        <br>
-    </center>
-    <center>
-        <form method="post" class="login_form">
-            {% csrf_token %}
-            {{ form.as_p }}
-            <button type="submit">Log in</button>
-        </form>
-    </center>
+
+<center>
+    <br>
+    <h1>Welcome! Please Log In</h1>
+    <br>
+    {% for message in messages %}
+
+    <div class="alert alert-success">
+        <a class="close" href="#" data-dismiss="alert">×</a>
+
+        {{ message }}
+
+    </div>
+    {% endfor %}
+    {% if form.errors %}
+    <p>username or password not correct</p>
+    {% endif %}
+</center>
+<center>
+    <form method="post" class="login_form">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Log in</button>
+        &nbsp;
+        <button type="button">Forgot password?</button>
+    </form>
+</center>
 </body>
 </html>

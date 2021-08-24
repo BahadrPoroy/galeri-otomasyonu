@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{user.username}} | Change User</title>
+</head>
+{% csrf_token %}
+<body>
+<center>
+    <table style="width:100%"><h3 align="left">Change User</h3>
+        <tr align="center" class="{{user.username}}">
+            <h4 align="left">{{user.username}}</h4>
+            <td align="center" >Username: {{user.username}}</td>
+            <td align="center">First Name: {{user.first_name}}</td>
+            <td align="center">Last Name: {{user.last_name}}</td>
+            <td align="center">Email: {{user.email}}</td>
+        </tr>
+        <tr>
+            <td></td>
+
+            <td colspan="2" align="center">
+                <button type="submit" name="delete-user" method="POST" onclick="window.location.href = '{% url 'delete_user' user.pk %}'">Delete User</button>
+            </td>
+            <td></td>
+        </tr>
+    </table>
+    </center>
+</body>
+</html>
+

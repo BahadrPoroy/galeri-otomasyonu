@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User Delete</title>
+</head>
+<body>
+{% csrf_token %}
+<center>
+    <p>{{user.username}} Deleted</p>
+    <button type="button" onclick="window.location.href= 'http://127.0.0.1:8000/users'">Return Users Page</button>
+</center>
+</body>
+</html>

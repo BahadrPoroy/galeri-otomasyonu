@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sign In</title>
+</head>
+<body>
+    <center>
+    <form method="post" class="signin_form">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Sign In</button>
+        <button type="button" onclick="window.location.href = 'http://127.0.0.1:8000/login'">Log In</button>
+    </form>
+</center>
+</body>
+</html>

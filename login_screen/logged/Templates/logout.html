@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Logged In</title>
+</head>
+<body>
+<center>
+    {% csrf_token %}
+    {% if user.is_authenticated %}
+    <button onclick="window.location.href='http://127.0.0.1:8000/logged/logout'">Log Out</button>
+
+    {% for message in messages %}
+    <div class="alert alert-error">
+        <a class="close" href="" data-dismiss="alert">×</a>
+        {{ message }}
+        </div>
+    {% endfor %}
+    {% else %}
+        {% for message in messages %}
+        <div class="alert alert-success">
+        <a class="close" href="" data-dismiss="alert">×</a>
+        {{ message }}
+        </div>
+    {% endfor %}
+    <button onclick="window.location.href='http://127.0.0.1:8000/login'">Log In</button>
+    {% endif %}
+
+</center>
+</body>
+
+</html>

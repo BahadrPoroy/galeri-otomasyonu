@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Logged In</title>
+    </head>
+<body>
+    <center>
+        {% csrf_token %}
+        {% if user.is_authenticated %}
+            <h2>Hi {{user.username}}!</h2>
+            <button onclick="window.location.href='http://127.0.0.1:8000/logged/logout'">Log Out</button>
+            {% if user.is_superuser %}
+                <button onclick="window.location.href='http://127.0.0.1:8000/users'">User Management</button>
+            {% endif %}
+        {% else %}
+            <p>Please login to see this page.</p>
+            <button onclick="window.location.href='http://127.0.0.1:8000/login'">Log In</button>
+        {% endif %}
+    </center>
+</body>
+</html>

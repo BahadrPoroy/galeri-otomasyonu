@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User Management</title>
+</head>
+{% csrf_token %}
+<body>
+<table style="width:100%" >
+
+    <tr>
+        <th>username</th>
+        <th>email</th>
+        <th>first name</th>
+        <th>last name</th>
+        <th>staff status</th>
+    </tr>
+    {% for user in users %}
+    <tr align="center">
+        <td> <a href="{{user.pk}}/change">{{user.username}}</a> </td>
+        <td>{{user.email}}</td>
+        <td>{{user.first_name}}</td>
+        <td>{{user.last_name}}</td>
+        <td>{{user.is_staff}}</td>
+    </tr>
+    {% endfor %}
+</table>
+</body>
+</html>
